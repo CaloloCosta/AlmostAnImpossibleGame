@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Impossible Game</title>
+    <style media="screen">
+        *{
+          margin: 0;
+          padding: 0;
+          font-family: sans-serif;
+        }
+
+        body{
+          background: #80ff62;
+          color: #3f4364;
+          font-size: 10px;
+        }
+        p,a{
+          font-size: 1.1rem;
+        }
+        .main{
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: center;
+          height: 90vh;
+          padding: 30px;
+        }
+        .title{
+          text-align: center;
+          font-size: 1.5rem;
+        }
+        .description{
+          background: rgba(138, 138, 138, 0.7);
+          width: 30vw;
+          padding: 1rem 0;
+          text-align: center;
+          border-radius: 1rem;
+          color: #fff;
+          font-size: 1.3rem;
+          display: none;
+        }
+        .game{
+          width: 50vw;
+          height: 50vh;
+          margin: 20px 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          position: relative;
+        }
+        button{
+          padding: 1.2rem;
+          border-radius: 50%;
+          outline: 0;
+          border-style: none;
+          width: 5rem;
+          height: 5rem;
+          background: #3f4364;
+          color: #80ff62;
+          font-size: 1.3rem;
+        }
+
+        .info{
+          width: 50vw;
+          font-size: 1.5rem;
+          text-align: center;
+        }
+        @media(max-width: 500px) {
+          .main{
+            height: 85vh;
+          }
+          .title{
+            text-align: center;
+            font-size: 1rem;
+          }
+          .info{
+            width: 80vw;
+            font-size: 1.2rem;
+            text-align: center;
+          }
+          .description{
+            width: 70vw;
+          }
+          p,a{
+            font-size: 1rem;
+          }
+        }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <div class="title">
+        <h1>Click on the button</h1>
+        <h1>To qualify for the ASP Exam</h1>
+      </div>
+      <div class="description">
+
+      </div>
+      <div class="game">
+        <button type="button" name="button">Click Me</button>
+      </div>
+
+      <div class="info">
+        <p>If you are able to Click on the button above, then your probability of qualifying for Applied Statics and Probability exam is very, very high... Or not!</p>
+        <p>Good luck!</p>
+      </div>
+      <p>Developed by <a href="https://wwww.github.com/calolocosta">Carlos da Costa</a> after a stressfull Astatistics test </p>
+    </div>
+    <script type="text/javascript">
+
+      if(window.visualViewport.width <= 800){
+        document.getElementsByTagName("button")[0].addEventListener(/*'touchstart'*/'touchmove',action);
+      }
+      else{
+        document.getElementsByTagName("button")[0].addEventListener('mousemove',action);
+      }
+
+
+
+      function action(){
+        const d = ['Nah try harder','Do not even try supp','I feel sorry for you'];
+        document.getElementsByTagName("button")[0].style.position = 'relative';
+        document.getElementsByTagName("button")[0].style.top = `${r()}rem`;
+        document.getElementsByTagName("button")[0].style.left = `${r()}rem`;
+        description(d[Math.floor(Math.random()*3)]);
+      }
+
+
+      document.getElementsByTagName("button")[0].addEventListener('click',()=>{
+        const d = 'Awesome, you qualifyed for the exam.';
+        description(d);
+        console.log('You got it!');
+        document.getElementsByTagName('body')[0].style.background = 'red';
+        setTimeout(() =>{
+          document.getElementsByTagName('body')[0].style.background = '#80ff62';
+        },1000);
+      });
+      function r (){
+        return Math.random()*10;
+      }
+      function description(text){
+        const desc = document.querySelector('.description');
+        desc.style.display = 'inline';
+        desc.innerHTML = `<p>${text}</p>`;
+        setTimeout(()=>{
+          desc.style.display = 'none';
+        },2000);
+      }
+    </script>
+  </body>
+</html>
