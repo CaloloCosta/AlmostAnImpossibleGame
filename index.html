@@ -129,7 +129,8 @@
 
 
       document.getElementsByTagName("button")[0].addEventListener('click',(e)=>{
-        if(e.which != '13'){
+        const key = e.which || e.keycode;
+        if(key != '13'){
                   const d = 'Awesome, you qualifyed for the exam.';
         description(d);
         console.log('You got it!');
