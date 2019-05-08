@@ -127,7 +127,15 @@
         description(d[Math.floor(Math.random()*3)]);
       }
 
-
+      document.getElementsByTagName("button")[0].addEventListener('keypress', (e)=>{
+         const key = e.which || e.keycode;
+        if(key === '13'){
+          description('Nah, no cheating');
+          console.log('Nah, no cheating');
+          
+          
+        }
+      });
       document.getElementsByTagName("button")[0].addEventListener('click',(e)=>{
         const key = e.which || e.keycode;
         if(key != '13'){
