@@ -110,7 +110,7 @@
     </div>
     <script type="text/javascript">
 
-      if(window.visualViewport.width <= 800){
+      if(window.innerWidth <= 800){
         document.getElementsByTagName("button")[0].addEventListener('touchstart',action);
       }
       else{
@@ -128,14 +128,19 @@
       }
 
 
-      document.getElementsByTagName("button")[0].addEventListener('click',()=>{
-        const d = 'Awesome, you qualifyed for the exam.';
+      document.getElementsByTagName("button")[0].addEventListener('click',(e)=>{
+        if(e.which != '13'){
+                  const d = 'Awesome, you qualifyed for the exam.';
         description(d);
         console.log('You got it!');
         document.getElementsByTagName('body')[0].style.background = 'red';
         setTimeout(() =>{
           document.getElementsByTagName('body')[0].style.background = '#80ff62';
         },1000);
+        }
+        else{
+          description('Nah, no cheating');
+        }
       });
       function r (){
         return Math.random()*10;
